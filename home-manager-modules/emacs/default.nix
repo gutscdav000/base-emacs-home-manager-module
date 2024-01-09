@@ -34,7 +34,7 @@ in {
       pkgs.nodejs
       pkgs.nixfmt
       pkgs.scalafmt
-
+      pkgs.unstable.metals
     ];
 
     programs.emacs = {
