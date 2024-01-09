@@ -264,7 +264,7 @@
   :init
   (setq helm-company-candidate-number-limit 3000)
   (bind-key "TAB" #'helm-company
-            company-active-map))
+            prog-mode-map))
 
 ;; Helpful
 (use-package helpful
