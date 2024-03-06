@@ -697,15 +697,15 @@
 
 (defun dgibs/get-jwt-url (institutionId userId env)
   "Construct the url needed to get a banno-jwt from an eauth cookie."
-  (format "http://%s-centralus-aks-shared-nodes.banno-%s.com:32598/v0/gateway/jwt?institutionId=%s&consumerUserId=%s&requestMethod=get&requestUrl=/a/mobile/api/v0/institutions/%s/users/%s/abilities"
-          env env institutionId userId institutionId userId))
+  (format "http://localhost:11803/v0/gateway/jwt?institutionId=%s&consumerUserId=%s&requestMethod=get&requestUrl=/a/mobile/api/v0/institutions/%s/users/%s/abilities"
+          institutionId userId institutionId userId))
 
 (defun dgibs/envTobeelzEnv (env)
   "Convert a full Banno ENV name to a beelze name."
   (if (string= env "production")
       "PROD"
-    (if (string= env "uat")
-        "UAT"
+    (if (string= env "staging")
+        "STG"
       env)))
 
 
