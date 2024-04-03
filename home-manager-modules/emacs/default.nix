@@ -47,7 +47,8 @@ in {
               copilot-lisp = epkgs.trivialBuild {
                 pname = "copilot-lisp";
                 src = inputs.copilot-el;
-                packageRequires = [ epkgs.dash epkgs.editorconfig epkgs.s ];
+		version = "main";
+                packageRequires = [ epkgs.dash epkgs.editorconfig epkgs.s epkgs.f ];
               };
               copilot-dist = pkgs.stdenv.mkDerivation {
                 name = "copilot-dist";
