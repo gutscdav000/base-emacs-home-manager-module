@@ -33,8 +33,12 @@ in {
     home.packages = [
       pkgs.nodejs
       pkgs.nixfmt
-      pkgs.scalafmt
-      pkgs.unstable.metals
+      pkgs.scalafmt      
+      #      pkgs.unstable.metals
+      # grabs version 1.2.1
+      # we want unstable to get the latest, but the commented code isn't
+      # finding the unstable overlay from my flake
+      pkgs.metals
     ];
 
     programs.emacs = {
@@ -47,7 +51,8 @@ in {
               copilot-lisp = epkgs.trivialBuild {
                 pname = "copilot-lisp";
                 src = inputs.copilot-el;
-                packageRequires = [ epkgs.dash epkgs.editorconfig epkgs.s ];
+                version = "main";
+                packageRequires = [ epkgs.dash epkgs.editorconfig epkgs.s epkgs.f ];
               };
               copilot-dist = pkgs.stdenv.mkDerivation {
                 name = "copilot-dist";
